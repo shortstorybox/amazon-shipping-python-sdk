@@ -1,0 +1,8 @@
+{
+    "packageName": "amazon_shipping",
+    "generateSupportingFiles": false,
+    "generateModelDocumentation": false,
+    "generateModelTests": false,
+    "generateApiTests": false,
+    "generateApiDocumentation": false
+}
