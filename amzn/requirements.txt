@@ -34,7 +34,7 @@ cachetools==4.2.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-certifi==2023.5.7
+certifi>=2017.4.17
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
