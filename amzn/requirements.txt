@@ -30,7 +30,7 @@ bravado-core==5.17.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
-cachetools==5.3.1
+cachetools==4.2.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
