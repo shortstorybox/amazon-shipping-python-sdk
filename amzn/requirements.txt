@@ -15,11 +15,11 @@ attrs==23.1.0
     #   referencing
 backoff==2.2.1
     # via -r ./extra-requirements.txt
-boto3==1.26.151
+boto3==1.16.39
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-botocore==1.29.151
+botocore==1.19.39
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
@@ -138,7 +138,7 @@ rpds-py==0.8.10
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   referencing
-s3transfer==0.6.2
+s3transfer==0.3.3
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
