@@ -34,7 +34,7 @@ cachetools==4.2.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-certifi==2018.11.29
+certifi==2023.7.22
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
@@ -107,7 +107,7 @@ pytz==2024.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado-core
-pyyaml==5.3
+pyyaml==5.4
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
@@ -119,7 +119,7 @@ referencing==0.29.1
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   jsonschema-specifications
-requests==2.27.1
+requests==2.31.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
