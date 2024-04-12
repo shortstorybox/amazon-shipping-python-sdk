@@ -52,7 +52,7 @@ class SPAPIClient:
 
     def get_api_client(self, api_name):
         try:
-            module = __import__('swagger_client.api', fromlist=[api_name])
+            module = __import__('amazon_shipping.api', fromlist=[api_name])
             api_class = getattr(module, api_name)
             return api_class(self.api_client)
         except AttributeError:
