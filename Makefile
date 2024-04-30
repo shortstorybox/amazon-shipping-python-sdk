@@ -25,6 +25,7 @@ amazon-shipping-sdk: env
 	cp ./setup.py.copy ./amzn/setup.py
 
 	# TODO: this sed command fails right now, this has to be done by hand 
+	# replace all instances of "swagger_client" with "amazon_shipping" in python files 
 	#for folder in auth spapi; do \
 	#	cd "./amzn/amazon_shipping/$$folder"; \
 	#	for file in *.py; do \
