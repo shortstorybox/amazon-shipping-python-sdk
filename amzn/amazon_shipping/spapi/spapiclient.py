@@ -7,7 +7,7 @@ from requests.exceptions import HTTPError
 from amazon_shipping.configuration import Configuration
 from amazon_shipping.api_client import ApiClient
 
-from auth.LwaRequest import AccessTokenCache
+from amazon_shipping.auth.LwaRequest import AccessTokenCache
 
 logging.basicConfig(level=logging.INFO)
 
