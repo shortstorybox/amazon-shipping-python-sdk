@@ -4,8 +4,8 @@ import logging
 import sys
 
 
-from auth.LwaException import LwaException
-from auth.LwaExceptionErrorCode import LwaExceptionErrorCode
+from amazon_shipping.auth.LwaException import LwaException
+from amazon_shipping.auth.LwaExceptionErrorCode import LwaExceptionErrorCode
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
