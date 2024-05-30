@@ -606,7 +606,10 @@ class ApiClient(object):
         """
 
         if not klass.swagger_types and not self.__hasattr(klass, 'get_real_child_model'):
-            return data
+            if hasattr(klass, 'child_type') and klass.child_type is not None:
+                return self.__deserialize(data, klass.child_type)
+            else:
+                return data
 
         kwargs = {}
         if klass.swagger_types is not None:
