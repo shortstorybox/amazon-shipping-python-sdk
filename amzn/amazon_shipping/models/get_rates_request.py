@@ -31,7 +31,7 @@ class GetRatesRequest(object):
         'ship_to': 'Address',
         'ship_from': 'Address',
         'return_to': 'Address',
-        'ship_date': 'datetime',
+        'ship_date': 'str',
         'shipper_instruction': 'ShipperInstruction',
         'packages': 'PackageList',
         'value_added_services': 'ValueAddedServiceDetails',
