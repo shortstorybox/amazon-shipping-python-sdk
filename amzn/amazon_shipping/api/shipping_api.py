@@ -113,7 +113,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/{shipmentId}/cancel', 'PUT',
@@ -224,7 +224,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/directPurchase', 'POST',
@@ -331,7 +331,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms', 'POST',
@@ -447,7 +447,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/accessPoints', 'GET',
@@ -554,7 +554,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/additionalInputs/schema', 'GET',
@@ -645,7 +645,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccountFormInputs', 'GET',
@@ -748,7 +748,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts', 'PUT',
@@ -847,7 +847,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms/{collectionFormId}', 'GET',
@@ -950,7 +950,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms/history', 'PUT',
@@ -1053,7 +1053,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/rates', 'POST',
@@ -1168,7 +1168,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/{shipmentId}/documents', 'GET',
@@ -1275,7 +1275,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/tracking', 'GET',
@@ -1378,7 +1378,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/unmanifestedShipments', 'PUT',
@@ -1489,7 +1489,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts/{carrierId}', 'PUT',
@@ -1592,7 +1592,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/oneClickShipment', 'POST',
@@ -1699,7 +1699,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments', 'POST',
@@ -1810,7 +1810,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['access_token']  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts/{carrierId}/unlink', 'PUT',

@@ -232,6 +232,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
+            'access_token': { 'in' : 'header', 'key': 'x-amz-access-token', 'value':  self.access_token }
         }
 
     def to_debug_report(self):
