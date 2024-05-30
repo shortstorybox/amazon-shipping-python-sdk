@@ -3,3 +3,5 @@
 The requirements.txt of amazon_shipping and shortstory-api will have a lot of conflicts, it is currently
 a pain to ensure that pip manages the shared library versions between the two repositories effectively.
 Try not to update amzn/requirements.txt
+
+# The main package is under `/amzn` folder
