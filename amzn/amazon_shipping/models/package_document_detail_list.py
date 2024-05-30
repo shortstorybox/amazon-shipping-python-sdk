@@ -32,6 +32,7 @@ class PackageDocumentDetailList(object):
 
     attribute_map = {
     }
+    child_type = 'list[PackageDocumentDetail]'
 
     def __init__(self):  # noqa: E501
         """PackageDocumentDetailList - a model defined in Swagger"""  # noqa: E501

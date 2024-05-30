@@ -33,6 +33,8 @@ class PackageDocumentList(object):
     attribute_map = {
     }
 
+    child_type = 'list[PackageDocument]'
+
     def __init__(self):  # noqa: E501
         """PackageDocumentList - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None
