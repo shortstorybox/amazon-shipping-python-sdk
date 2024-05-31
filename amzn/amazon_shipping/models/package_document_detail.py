@@ -68,9 +68,6 @@ class PackageDocumentDetail(object):
         :param package_client_reference_id: The package_client_reference_id of this PackageDocumentDetail.  # noqa: E501
         :type: PackageClientReferenceId
         """
-        if package_client_reference_id is None:
-            raise ValueError("Invalid value for `package_client_reference_id`, must not be `None`")  # noqa: E501
-
         self._package_client_reference_id = package_client_reference_id
 
     @property
