@@ -32,15 +32,9 @@ class SPAPIClient:
 
     def _initialize_client(self):
         logging.debug("Initializing API Client...")
-
-        access_token = self.access_token_cache.get_lwa_access_token(
-            client_id=self.config.client_id,
-            client_secret=self.config.client_secret,
-            refresh_token=self.config.refresh_token
-        )
         configuration = Configuration()
         configuration.host = self.api_base_url
-        configuration.access_token = access_token
+        configuration.access_token = None
 
         self.api_client = ApiClient(configuration=configuration)
 
