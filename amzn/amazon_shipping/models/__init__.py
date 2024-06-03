@@ -60,6 +60,7 @@ from amazon_shipping.models.currency import Currency
 from amazon_shipping.models.dangerous_goods_details import DangerousGoodsDetails
 from amazon_shipping.models.date_range import DateRange
 from amazon_shipping.models.day_of_week_time_map import DayOfWeekTimeMap
+from amazon_shipping.models.detail_codes import DetailCodes
 from amazon_shipping.models.dimensions import Dimensions
 from amazon_shipping.models.direct_fulfillment_item_identifiers import DirectFulfillmentItemIdentifiers
 from amazon_shipping.models.direct_purchase_request import DirectPurchaseRequest
@@ -170,6 +171,7 @@ from amazon_shipping.models.tax_type import TaxType
 from amazon_shipping.models.time_of_day import TimeOfDay
 from amazon_shipping.models.time_window import TimeWindow
 from amazon_shipping.models.tracking_id import TrackingId
+from amazon_shipping.models.tracking_detail_codes import TrackingDetailCodes
 from amazon_shipping.models.tracking_summary import TrackingSummary
 from amazon_shipping.models.unlink_carrier_account_request import UnlinkCarrierAccountRequest
 from amazon_shipping.models.unlink_carrier_account_response import UnlinkCarrierAccountResponse
