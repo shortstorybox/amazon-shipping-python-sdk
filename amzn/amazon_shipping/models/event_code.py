@@ -35,6 +35,9 @@ class EventCode(object):
     REJECTED = "Rejected"
     UNDELIVERABLE = "Undeliverable"
     PICKUPCANCELLED = "PickupCancelled"
+    RETURNINITIATED = "ReturnInitiated"
+    AVAILABLEFORPICKUP = "AvailableForPickup"
+
     """
     Attributes:
       swagger_types (dict): The key is attribute name
