@@ -30,25 +30,29 @@ class Event(object):
     swagger_types = {
         'event_code': 'EventCode',
         'location': 'Location',
-        'event_time': 'datetime'
+        'event_time': 'datetime',
+        'shipment_type': 'ShipmentType'
     }
 
     attribute_map = {
         'event_code': 'eventCode',
         'location': 'location',
-        'event_time': 'eventTime'
+        'event_time': 'eventTime',
+        'shipment_type': 'shipmentType'
     }
 
-    def __init__(self, event_code=None, location=None, event_time=None):  # noqa: E501
+    def __init__(self, event_code=None, location=None, event_time=None, shipment_type=None):  # noqa: E501
         """Event - a model defined in Swagger"""  # noqa: E501
         self._event_code = None
         self._location = None
         self._event_time = None
+        self._shipment_type = None
         self.discriminator = None
         self.event_code = event_code
         if location is not None:
             self.location = location
         self.event_time = event_time
+        self.shipment_type = shipment_type
 
     @property
     def event_code(self):
@@ -118,6 +122,31 @@ class Event(object):
             raise ValueError("Invalid value for `event_time`, must not be `None`")  # noqa: E501
 
         self._event_time = event_time
+
+    @property
+    def shipment_type(self):
+        """Gets the shipment_type of this Event.  # noqa: E501
+
+        The ISO 8601 formatted timestamp of the event.  # noqa: E501
+
+        :return: The shipment_type of this Event.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._shipment_type
+
+    @shipment_type.setter
+    def shipment_type(self, shipment_type):
+        """Sets the shipment_type of this Event.
+
+        The ISO 8601 formatted timestamp of the event.  # noqa: E501
+
+        :param shipment_type: The shipment_type of this Event.  # noqa: E501
+        :type: datetime
+        """
+        if shipment_type is None:
+            raise ValueError("Invalid value for `shipment_type`, must not be `None`")  # noqa: E501
+
+        self._shipment_type = shipment_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
