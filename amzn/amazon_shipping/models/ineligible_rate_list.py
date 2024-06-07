@@ -32,6 +32,7 @@ class IneligibleRateList(object):
 
     attribute_map = {
     }
+    child_type = 'list[IneligibleRate]'
 
     def __init__(self):  # noqa: E501
         """IneligibleRateList - a model defined in Swagger"""  # noqa: E501
