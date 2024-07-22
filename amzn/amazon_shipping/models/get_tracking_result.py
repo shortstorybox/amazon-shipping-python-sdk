@@ -145,9 +145,6 @@ class GetTrackingResult(object):
         :param promised_delivery_date: The promised_delivery_date of this GetTrackingResult.  # noqa: E501
         :type: datetime
         """
-        if promised_delivery_date is None:
-            raise ValueError("Invalid value for `promised_delivery_date`, must not be `None`")  # noqa: E501
-
         self._promised_delivery_date = promised_delivery_date
 
     @property
