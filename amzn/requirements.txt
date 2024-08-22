@@ -43,7 +43,7 @@ charset-normalizer==2.0.12
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   requests
-chevron==0.13.1
+chevron==0.14.0
     # via -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
 confuse==2.0.1
     # via
