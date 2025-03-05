@@ -95,7 +95,7 @@ msgpack==1.0.5
     #   bravado-core
 python-amazon-sp-api==1.0.2
     # via -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
-python-dateutil==2.8.0
+python-dateutil>=2.8.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
