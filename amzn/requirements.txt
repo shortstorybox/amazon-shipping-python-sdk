@@ -15,7 +15,7 @@ attrs==23.1.0
     #   referencing
 backoff==2.2.1
     # via -r ./extra-requirements.txt
-boto3==1.16.39
+boto3<2.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
