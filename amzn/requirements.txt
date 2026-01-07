@@ -4,98 +4,98 @@
 #
 #    pip-compile --output-file=./amzn/merged_requirements.txt ./amzn/requirements.txt ./extra-requirements.txt ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
 #
-arrow~=1
+arrow~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   isoduration
-attrs~=23
+attrs~=23.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   referencing
-backoff~=2
+backoff~=2.0
     # via -r ./extra-requirements.txt
-boto3~=1
+boto3~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-botocore~=1
+botocore~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
     #   s3transfer
-bravado~=11
+bravado~=11.0
     # via -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
-bravado-core~=5
+bravado-core~=5.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
-cachetools~=5
+cachetools~=5.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-certifi>=2023
+certifi>=2023.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   requests
-charset-normalizer~=3
+charset-normalizer~=3.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   requests
-chevron~=0
+chevron~=0.0
     # via -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
-confuse~=2
+confuse~=2.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-fqdn~=1
+fqdn~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-idna~=3
+idna~=3.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   requests
-isoduration~=20
+isoduration~=20.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-jmespath~=1
+jmespath~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
     #   botocore
-jsonpointer~=2
+jsonpointer~=2.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-jsonref~=1
+jsonref~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado-core
-jsonschema[format]~=4
+jsonschema[format]~=4.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado-core
     #   swagger-spec-validator
-jsonschema-specifications>=2023
+jsonschema-specifications>=2023.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-monotonic~=1
+monotonic~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
-msgpack~=1
+msgpack~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   bravado-core
-python-amazon-sp-api~=1
+python-amazon-sp-api~=1.0
     # via -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
-python-dateutil~=2
+python-dateutil~=2.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
@@ -103,51 +103,51 @@ python-dateutil~=2
     #   botocore
     #   bravado
     #   bravado-core
-pytz>=2023
+pytz>=2023.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado-core
-pyyaml~=6
+pyyaml~=6.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   bravado-core
     #   confuse
     #   swagger-spec-validator
-referencing~=0
+referencing~=0.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   jsonschema-specifications
-requests~=2
+requests~=2.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   bravado-core
     #   python-amazon-sp-api
-rfc3339-validator~=0
+rfc3339-validator~=0.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-rfc3987~=1
+rfc3987~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-rpds-py~=0
+rpds-py~=0.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   referencing
-s3transfer~=0
+s3transfer~=0.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
-simplejson~=3
+simplejson~=3.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   bravado-core
-six~=1
+six~=1.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
@@ -155,26 +155,26 @@ six~=1
     #   bravado-core
     #   python-dateutil
     #   rfc3339-validator
-swagger-spec-validator~=3
+swagger-spec-validator~=3.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado-core
-typing-extensions~=4
+typing-extensions~=4.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   swagger-spec-validator
-uri-template~=1
+uri-template~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-urllib3~=1
+urllib3~=1.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   botocore
     #   requests
-webcolors~=1
+webcolors~=1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
