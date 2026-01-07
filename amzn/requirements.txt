@@ -147,7 +147,7 @@ simplejson==3.17.2
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
     #   bravado-core
-six==1.14.0
+six>=1.16.0
     # via
     #   -r ./amzn/requirements.txt
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
