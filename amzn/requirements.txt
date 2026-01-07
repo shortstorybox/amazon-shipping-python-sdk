@@ -138,7 +138,7 @@ rpds-py==0.8.10
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   referencing
-s3transfer==0.3.3
+s3transfer<1.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
