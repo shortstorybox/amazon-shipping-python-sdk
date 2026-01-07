@@ -19,7 +19,7 @@ boto3==1.16.39
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   python-amazon-sp-api
-botocore==1.19.39
+botocore<2.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   boto3
