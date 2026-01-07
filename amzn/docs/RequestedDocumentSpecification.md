@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **page_layout** | [**PageLayout**](PageLayout.md) |  | [optional] 
 **need_file_joining** | [**NeedFileJoining**](NeedFileJoining.md) |  | 
 **requested_document_types** | [**list[DocumentType]**](DocumentType.md) | A list of the document types requested. | 
+**requested_label_customization** | [**RequestedLabelCustomization**](RequestedLabelCustomization.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

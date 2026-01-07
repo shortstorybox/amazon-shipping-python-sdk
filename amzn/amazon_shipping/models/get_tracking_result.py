@@ -98,6 +98,9 @@ class GetTrackingResult(object):
         :param alternate_leg_tracking_id: The alternate_leg_tracking_id of this GetTrackingResult.  # noqa: E501
         :type: AlternateLegTrackingId
         """
+        if alternate_leg_tracking_id is None:
+            raise ValueError("Invalid value for `alternate_leg_tracking_id`, must not be `None`")  # noqa: E501
+
         self._alternate_leg_tracking_id = alternate_leg_tracking_id
 
     @property
@@ -145,6 +148,9 @@ class GetTrackingResult(object):
         :param promised_delivery_date: The promised_delivery_date of this GetTrackingResult.  # noqa: E501
         :type: datetime
         """
+        if promised_delivery_date is None:
+            raise ValueError("Invalid value for `promised_delivery_date`, must not be `None`")  # noqa: E501
+
         self._promised_delivery_date = promised_delivery_date
 
     @property

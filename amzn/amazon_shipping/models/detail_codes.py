@@ -20,34 +20,40 @@ class DetailCodes(object):
 
     Do not edit the class manually.
     """
-    BUSINESSCLOSED="BusinessClosed"	#Attempted delivery but the business was closed.
-    CUSTOMERUNAVAILABLE="CustomerUnavailable"	#Attempted delivery but the recipient was unavailable.
-    PAYMENTNOTREADY="PaymentNotReady"	#Attempted delivery but cash was not available from recipient.
-    OTPNOTAVAILABLE="OtpNotAvailable"	#Attempted delivery but the recipient did not have the PIN available.
-    DELIVERYATTEMPTED="DeliveryAttempted"	#Delivery was attempted.
-    UNABLETOACCESS="UnableToAccess"	#Attempted delivery but could not access the recipient location.
-    UNABLETOCONTACTRECIPIENT="UnableToContactRecipient"	#Attempted delivery but unable to contact the recipient to coordinate delivery.
-    DELIVEREDTOBELHINDWHEELIEBIN="DeliveredToBehindWheelieBin"	#Shipment delivered behind wheelie bin.
-    DELIVEREDTOPORCH="DeliveredToPorch"	#Shipment delivered to front porch or front door.
-    DELIVEREDTOGARAGE="DeliveredToGarage"	#Shipment delivered to garage.
-    DELIVEREDTOGARDEN="DeliveredToGarden"	#Shipment delivered to garden.
-    DELIVEREDTOGREENHOUS="DeliveredToGreenhouse"	#Shipment delivered to greenhouse.
-    DELIVEREDTOMAILSLOT="DeliveredToMailSlot"	#Shipment delivered to letterbox/mail slot.
-    DELIVEREDTOMAILROOM="DeliveredToMailRoom"	#Shipment delivered to mailroom.
-    DELIVEREDTONEIGHBOUR="DeliveredToNeighbor"	#Shipment delivered and signed for by neighbor.
-    DELIVEREDTOREARDOOR="DeliveredToRearDoor"	#Shipment delivered to rear porch or rear door.
-    DELIVEREDTORECEPTIONIST="DeliveredToReceptionist"	#Shipment delivered to reception.
-    DELIVEREDTOSHED="DeliveredToShed"	#Shipment delivered to shed.
-    SIGNED="Signed"	#Shipment delivered and signature received.
-    DAMAGED="Damaged"	#Shipment was damaged. When paired with Rejected this indicates the recipient refused to accept the shipment because the shipment was damaged. When paired with UNDELIVERABLE it means the shipment was undeliverable due to being damaged and may be returned to the seller.
-    INCORRECTITEMS="IncorrectItems"	#Recipient refused to accept the shipment because the shipment contains incorrect item/s.
-    NOTREQUIRED="NotRequired"	#Recipient refused to accept the shipment because the recipient did not want the shipment.
-    REJECTED="Rejected"	#Recipient refused to accept the shipment.
-    CANCELLEDBYRECIPIENT="CancelledByRecipient"	#Shipment was cancelled by the recipient. This tag is paired with the rejected shipment status.
-    ADDRESSNOTFOUND="AddressNotFound"	#Shipment is undeliverable and is returning to seller because the address was missing or incorrect.
-    HAZMATSHIPMENT="HazmatShipment"	#Shipment is non-compliant Hazmat.
-    UNDELIVERABLE="Undeliverable"	#Shipment is undeliverable and is returning to the seller.
 
+    """
+    allowed enum values
+    """
+    BUSINESSCLOSED = "BusinessClosed"
+    CUSTOMERUNAVAILABLE = "CustomerUnavailable"
+    PAYMENTNOTREADY = "PaymentNotReady"
+    OTPNOTAVAILABLE = "OtpNotAvailable"
+    DELIVERYATTEMPTED = "DeliveryAttempted"
+    UNABLETOACCESS = "UnableToAccess"
+    UNABLETOCONTACTRECIPIENT = "UnableToContactRecipient"
+    DELIVEREDTOBEHINDWHEELIEBIN = "DeliveredToBehindWheelieBin"
+    DELIVEREDTOPORCH = "DeliveredToPorch"
+    DELIVEREDTOGARAGE = "DeliveredToGarage"
+    DELIVEREDTOGARDEN = "DeliveredToGarden"
+    DELIVEREDTOGREENHOUSE = "DeliveredToGreenhouse"
+    DELIVEREDTOMAILSLOT = "DeliveredToMailSlot"
+    DELIVEREDTOMAILROOM = "DeliveredToMailRoom"
+    DELIVEREDTONEIGHBOR = "DeliveredToNeighbor"
+    DELIVEREDTOREARDOOR = "DeliveredToRearDoor"
+    DELIVEREDTORECEPTIONIST = "DeliveredToReceptionist"
+    DELIVEREDTOSHED = "DeliveredToShed"
+    DELIVEREDWITHOTP = "DeliveredWithOTP"
+    SIGNED = "Signed"
+    DAMAGED = "Damaged"
+    INCORRECTITEMS = "IncorrectItems"
+    NOTREQUIRED = "NotRequired"
+    REJECTED = "Rejected"
+    REJECTEDBYRECIPIENTWITHVERIFICATION = "RejectedByRecipientWithVerification"
+    CANCELLEDBYRECIPIENT = "CancelledByRecipient"
+    ADDRESSNOTFOUND = "AddressNotFound"
+    HAZMATSHIPMENT = "HazmatShipment"
+    UNDELIVERABLE = "Undeliverable"
+    ARRIVEDATLOCALFACILITY = "ArrivedAtLocalFacility"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

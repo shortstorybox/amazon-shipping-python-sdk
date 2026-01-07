@@ -28,7 +28,7 @@ class ActiveAccount(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'account_id': 'str',
+        'account_id': 'AccountId',
         'carrier_id': 'CarrierId'
     }
 
@@ -51,10 +51,9 @@ class ActiveAccount(object):
     def account_id(self):
         """Gets the account_id of this ActiveAccount.  # noqa: E501
 
-        Account Id associated with this account.  # noqa: E501
 
         :return: The account_id of this ActiveAccount.  # noqa: E501
-        :rtype: str
+        :rtype: AccountId
         """
         return self._account_id
 
@@ -62,10 +61,9 @@ class ActiveAccount(object):
     def account_id(self, account_id):
         """Sets the account_id of this ActiveAccount.
 
-        Account Id associated with this account.  # noqa: E501
 
         :param account_id: The account_id of this ActiveAccount.  # noqa: E501
-        :type: str
+        :type: AccountId
         """
 
         self._account_id = account_id

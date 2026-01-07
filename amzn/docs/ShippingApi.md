@@ -5,6 +5,7 @@ All URIs are relative to *https://sellingpartnerapi-eu.amazon.com/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cancel_shipment**](ShippingApi.md#cancel_shipment) | **PUT** /shipping/v2/shipments/{shipmentId}/cancel | 
+[**create_claim**](ShippingApi.md#create_claim) | **POST** /shipping/v2/claims | 
 [**direct_purchase_shipment**](ShippingApi.md#direct_purchase_shipment) | **POST** /shipping/v2/shipments/directPurchase | 
 [**generate_collection_form**](ShippingApi.md#generate_collection_form) | **POST** /shipping/v2/collectionForms | 
 [**get_access_points**](ShippingApi.md#get_access_points) | **GET** /shipping/v2/accessPoints | 
@@ -18,8 +19,10 @@ Method | HTTP request | Description
 [**get_tracking**](ShippingApi.md#get_tracking) | **GET** /shipping/v2/tracking | 
 [**get_unmanifested_shipments**](ShippingApi.md#get_unmanifested_shipments) | **PUT** /shipping/v2/unmanifestedShipments | 
 [**link_carrier_account**](ShippingApi.md#link_carrier_account) | **PUT** /shipping/v2/carrierAccounts/{carrierId} | 
+[**link_carrier_account_0**](ShippingApi.md#link_carrier_account_0) | **POST** /shipping/v2/carrierAccounts/{carrierId} | 
 [**one_click_shipment**](ShippingApi.md#one_click_shipment) | **POST** /shipping/v2/oneClickShipment | 
 [**purchase_shipment**](ShippingApi.md#purchase_shipment) | **POST** /shipping/v2/shipments | 
+[**submit_ndr_feedback**](ShippingApi.md#submit_ndr_feedback) | **POST** /shipping/v2/ndrFeedback | 
 [**unlink_carrier_account**](ShippingApi.md#unlink_carrier_account) | **PUT** /shipping/v2/carrierAccounts/{carrierId}/unlink | 
 
 # **cancel_shipment**
@@ -71,6 +74,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_claim**
+> CreateClaimResponse create_claim(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+
+
+
+This API will be used to create claim for single eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).
+
+### Example
+```python
+from __future__ import print_function
+import time
+import amazon_shipping
+from amazon_shipping.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi()
+body = amazon_shipping.CreateClaimRequest() # CreateClaimRequest | Request body for the createClaim operation
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_response = api_instance.create_claim(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ShippingApi->create_claim: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateClaimRequest**](CreateClaimRequest.md)| Request body for the createClaim operation | 
+ **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
+
+### Return type
+
+[**CreateClaimResponse**](CreateClaimResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **direct_purchase_shipment**
 > DirectPurchaseResponse direct_purchase_shipment(body, x_amzn_idempotency_key=x_amzn_idempotency_key, locale=locale, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
 
@@ -88,7 +140,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.DirectPurchaseRequest() # DirectPurchaseRequest | 
+body = amazon_shipping.DirectPurchaseRequest() # DirectPurchaseRequest | DirectPurchaseRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 locale = 'locale_example' # str | The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags.  (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
@@ -104,7 +156,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DirectPurchaseRequest**](DirectPurchaseRequest.md)|  | 
+ **body** | [**DirectPurchaseRequest**](DirectPurchaseRequest.md)| DirectPurchaseRequest body | 
  **x_amzn_idempotency_key** | **str**| A unique value which the server uses to recognize subsequent retries of the same request. | [optional] 
  **locale** | **str**| The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags.  | [optional] 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
@@ -141,7 +193,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.GenerateCollectionFormRequest() # GenerateCollectionFormRequest | 
+body = amazon_shipping.GenerateCollectionFormRequest() # GenerateCollectionFormRequest | GenerateCollectionFormRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -156,7 +208,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GenerateCollectionFormRequest**](GenerateCollectionFormRequest.md)|  | 
+ **body** | [**GenerateCollectionFormRequest**](GenerateCollectionFormRequest.md)| GenerateCollectionFormRequest body | 
  **x_amzn_idempotency_key** | **str**| A unique value which the server uses to recognize subsequent retries of the same request. | [optional] 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
@@ -192,9 +244,9 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-access_point_types = ['access_point_types_example'] # list[str] | 
-country_code = 'country_code_example' # str | 
-postal_code = 'postal_code_example' # str | 
+access_point_types = ['access_point_types_example'] # list[str] | Access point types
+country_code = 'country_code_example' # str | Country code for access point
+postal_code = 'postal_code_example' # str | postal code for access point
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -208,9 +260,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_point_types** | [**list[str]**](str.md)|  | 
- **country_code** | **str**|  | 
- **postal_code** | **str**|  | 
+ **access_point_types** | [**list[str]**](str.md)| Access point types | 
+ **country_code** | **str**| Country code for access point | 
+ **postal_code** | **str**| postal code for access point | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -343,7 +395,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.GetCarrierAccountsRequest() # GetCarrierAccountsRequest | 
+body = amazon_shipping.GetCarrierAccountsRequest() # GetCarrierAccountsRequest | GetCarrierAccountsRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -357,7 +409,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetCarrierAccountsRequest**](GetCarrierAccountsRequest.md)|  | 
+ **body** | [**GetCarrierAccountsRequest**](GetCarrierAccountsRequest.md)| GetCarrierAccountsRequest body | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -441,7 +493,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.GetCollectionFormHistoryRequest() # GetCollectionFormHistoryRequest | 
+body = amazon_shipping.GetCollectionFormHistoryRequest() # GetCollectionFormHistoryRequest | GetCollectionFormHistoryRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -455,7 +507,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetCollectionFormHistoryRequest**](GetCollectionFormHistoryRequest.md)|  | 
+ **body** | [**GetCollectionFormHistoryRequest**](GetCollectionFormHistoryRequest.md)| GetCollectionFormHistoryRequest body | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -490,7 +542,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.GetRatesRequest() # GetRatesRequest | 
+body = amazon_shipping.GetRatesRequest() # GetRatesRequest | GetRatesRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -504,7 +556,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetRatesRequest**](GetRatesRequest.md)|  | 
+ **body** | [**GetRatesRequest**](GetRatesRequest.md)| GetRatesRequest body | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -645,7 +697,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.GetUnmanifestedShipmentsRequest() # GetUnmanifestedShipmentsRequest | 
+body = amazon_shipping.GetUnmanifestedShipmentsRequest() # GetUnmanifestedShipmentsRequest | GetUmanifestedShipmentsRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -659,7 +711,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**GetUnmanifestedShipmentsRequest**](GetUnmanifestedShipmentsRequest.md)|  | 
+ **body** | [**GetUnmanifestedShipmentsRequest**](GetUnmanifestedShipmentsRequest.md)| GetUmanifestedShipmentsRequest body | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -694,8 +746,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | 
-carrier_id = 'carrier_id_example' # str | The unique identifier associated with the carrier account.
+body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | LinkCarrierAccountRequest body
+carrier_id = 'carrier_id_example' # str | An identifier for the carrier with which the seller's account is being linked.
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -709,8 +761,59 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LinkCarrierAccountRequest**](LinkCarrierAccountRequest.md)|  | 
- **carrier_id** | **str**| The unique identifier associated with the carrier account. | 
+ **body** | [**LinkCarrierAccountRequest**](LinkCarrierAccountRequest.md)| LinkCarrierAccountRequest body | 
+ **carrier_id** | **str**| An identifier for the carrier with which the seller&#x27;s account is being linked. | 
+ **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
+
+### Return type
+
+[**LinkCarrierAccountResponse**](LinkCarrierAccountResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **link_carrier_account_0**
+> LinkCarrierAccountResponse link_carrier_account_0(body, carrier_id, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+
+
+
+This API associates/links the specified carrier account with the merchant.   **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 5 | 10 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).
+
+### Example
+```python
+from __future__ import print_function
+import time
+import amazon_shipping
+from amazon_shipping.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi()
+body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | LinkCarrierAccountRequest body
+carrier_id = 'carrier_id_example' # str | An identifier for the carrier with which the seller's account is being linked.
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_response = api_instance.link_carrier_account_0(body, carrier_id, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ShippingApi->link_carrier_account_0: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LinkCarrierAccountRequest**](LinkCarrierAccountRequest.md)| LinkCarrierAccountRequest body | 
+ **carrier_id** | **str**| An identifier for the carrier with which the seller&#x27;s account is being linked. | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -745,7 +848,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.OneClickShipmentRequest() # OneClickShipmentRequest | 
+body = amazon_shipping.OneClickShipmentRequest() # OneClickShipmentRequest | OneClickShipmentRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -759,7 +862,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**OneClickShipmentRequest**](OneClickShipmentRequest.md)|  | 
+ **body** | [**OneClickShipmentRequest**](OneClickShipmentRequest.md)| OneClickShipmentRequest body | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
@@ -794,7 +897,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.PurchaseShipmentRequest() # PurchaseShipmentRequest | 
+body = amazon_shipping.PurchaseShipmentRequest() # PurchaseShipmentRequest | PurchaseShipmentRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -809,13 +912,61 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**PurchaseShipmentRequest**](PurchaseShipmentRequest.md)|  | 
+ **body** | [**PurchaseShipmentRequest**](PurchaseShipmentRequest.md)| PurchaseShipmentRequest body | 
  **x_amzn_idempotency_key** | **str**| A unique value which the server uses to recognize subsequent retries of the same request. | [optional] 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 
 ### Return type
 
 [**PurchaseShipmentResponse**](PurchaseShipmentResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **submit_ndr_feedback**
+> submit_ndr_feedback(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+
+
+
+This API submits the NDR (Non-delivery Report) Feedback for any eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).
+
+### Example
+```python
+from __future__ import print_function
+import time
+import amazon_shipping
+from amazon_shipping.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi()
+body = amazon_shipping.SubmitNdrFeedbackRequest() # SubmitNdrFeedbackRequest | Request body for ndrFeedback operation
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_instance.submit_ndr_feedback(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+except ApiException as e:
+    print("Exception when calling ShippingApi->submit_ndr_feedback: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SubmitNdrFeedbackRequest**](SubmitNdrFeedbackRequest.md)| Request body for ndrFeedback operation | 
+ **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -845,7 +996,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi()
-body = amazon_shipping.UnlinkCarrierAccountRequest() # UnlinkCarrierAccountRequest | 
+body = amazon_shipping.UnlinkCarrierAccountRequest() # UnlinkCarrierAccountRequest | UnlinkCarrierAccountRequest body
 carrier_id = 'carrier_id_example' # str | carrier Id to unlink with merchant.
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -860,7 +1011,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**UnlinkCarrierAccountRequest**](UnlinkCarrierAccountRequest.md)|  | 
+ **body** | [**UnlinkCarrierAccountRequest**](UnlinkCarrierAccountRequest.md)| UnlinkCarrierAccountRequest body | 
  **carrier_id** | **str**| carrier Id to unlink with merchant. | 
  **x_amzn_shipping_business_id** | **str**| Amazon shipping business to assume for this request. The default is AmazonShipping_UK. | [optional] 
 

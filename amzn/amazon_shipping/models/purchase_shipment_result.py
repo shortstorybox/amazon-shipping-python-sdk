@@ -30,24 +30,29 @@ class PurchaseShipmentResult(object):
     swagger_types = {
         'shipment_id': 'ShipmentId',
         'package_document_details': 'PackageDocumentDetailList',
-        'promise': 'Promise'
+        'promise': 'Promise',
+        'benefits': 'Benefits'
     }
 
     attribute_map = {
         'shipment_id': 'shipmentId',
         'package_document_details': 'packageDocumentDetails',
-        'promise': 'promise'
+        'promise': 'promise',
+        'benefits': 'benefits'
     }
 
-    def __init__(self, shipment_id=None, package_document_details=None, promise=None):  # noqa: E501
+    def __init__(self, shipment_id=None, package_document_details=None, promise=None, benefits=None):  # noqa: E501
         """PurchaseShipmentResult - a model defined in Swagger"""  # noqa: E501
         self._shipment_id = None
         self._package_document_details = None
         self._promise = None
+        self._benefits = None
         self.discriminator = None
         self.shipment_id = shipment_id
         self.package_document_details = package_document_details
         self.promise = promise
+        if benefits is not None:
+            self.benefits = benefits
 
     @property
     def shipment_id(self):
@@ -117,6 +122,27 @@ class PurchaseShipmentResult(object):
             raise ValueError("Invalid value for `promise`, must not be `None`")  # noqa: E501
 
         self._promise = promise
+
+    @property
+    def benefits(self):
+        """Gets the benefits of this PurchaseShipmentResult.  # noqa: E501
+
+
+        :return: The benefits of this PurchaseShipmentResult.  # noqa: E501
+        :rtype: Benefits
+        """
+        return self._benefits
+
+    @benefits.setter
+    def benefits(self, benefits):
+        """Sets the benefits of this PurchaseShipmentResult.
+
+
+        :param benefits: The benefits of this PurchaseShipmentResult.  # noqa: E501
+        :type: Benefits
+        """
+
+        self._benefits = benefits
 
     def to_dict(self):
         """Returns the model properties as a dict"""

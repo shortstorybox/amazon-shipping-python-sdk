@@ -29,27 +29,30 @@ class TrackingDetailCodes(object):
     """
     swagger_types = {
         'forward': 'list[DetailCodes]',
-        'returns': 'list[DetailCodes]',
+        'returns': 'list[DetailCodes]'
     }
 
     attribute_map = {
         'forward': 'forward',
-        'returns': 'returns',
+        'returns': 'returns'
     }
 
     def __init__(self, forward=None, returns=None):  # noqa: E501
         """TrackingDetailCodes - a model defined in Swagger"""  # noqa: E501
+        self._forward = None
+        self._returns = None
         self.discriminator = None
-        self._forward = forward
-        self._returns = returns
-        
+        self.forward = forward
+        self.returns = returns
+
     @property
     def forward(self):
         """Gets the forward of this TrackingDetailCodes.  # noqa: E501
 
+        Contains detail codes that provide additional details related to the forward leg of the shipment.  # noqa: E501
 
         :return: The forward of this TrackingDetailCodes.  # noqa: E501
-        :rtype: forward
+        :rtype: list[DetailCodes]
         """
         return self._forward
 
@@ -57,10 +60,13 @@ class TrackingDetailCodes(object):
     def forward(self, forward):
         """Sets the forward of this TrackingDetailCodes.
 
+        Contains detail codes that provide additional details related to the forward leg of the shipment.  # noqa: E501
 
         :param forward: The forward of this TrackingDetailCodes.  # noqa: E501
-        :type: forward
+        :type: list[DetailCodes]
         """
+        if forward is None:
+            raise ValueError("Invalid value for `forward`, must not be `None`")  # noqa: E501
 
         self._forward = forward
 
@@ -68,9 +74,10 @@ class TrackingDetailCodes(object):
     def returns(self):
         """Gets the returns of this TrackingDetailCodes.  # noqa: E501
 
+        Contains detail codes that provide additional details related to the return leg of the shipment.  # noqa: E501
 
         :return: The returns of this TrackingDetailCodes.  # noqa: E501
-        :rtype: returns
+        :rtype: list[DetailCodes]
         """
         return self._returns
 
@@ -78,10 +85,13 @@ class TrackingDetailCodes(object):
     def returns(self, returns):
         """Sets the returns of this TrackingDetailCodes.
 
+        Contains detail codes that provide additional details related to the return leg of the shipment.  # noqa: E501
 
         :param returns: The returns of this TrackingDetailCodes.  # noqa: E501
-        :type: returns
+        :type: list[DetailCodes]
         """
+        if returns is None:
+            raise ValueError("Invalid value for `returns`, must not be `None`")  # noqa: E501
 
         self._returns = returns
 
