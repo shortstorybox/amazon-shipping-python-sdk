@@ -32,7 +32,6 @@ class RateList(object):
 
     attribute_map = {
     }
-    child_type = 'list[Rate]'
 
     def __init__(self):  # noqa: E501
         """RateList - a model defined in Swagger"""  # noqa: E501

@@ -64,7 +64,18 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.DirectPurchaseRequest() # DirectPurchaseRequest | 
+body = amazon_shipping.CreateClaimRequest() # CreateClaimRequest | Request body for the createClaim operation
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_response = api_instance.create_claim(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ShippingApi->create_claim: %s\n" % e)
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
+body = amazon_shipping.DirectPurchaseRequest() # DirectPurchaseRequest | DirectPurchaseRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 locale = 'locale_example' # str | The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags.  (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
@@ -77,7 +88,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.GenerateCollectionFormRequest() # GenerateCollectionFormRequest | 
+body = amazon_shipping.GenerateCollectionFormRequest() # GenerateCollectionFormRequest | GenerateCollectionFormRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -89,9 +100,9 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-access_point_types = ['access_point_types_example'] # list[str] | 
-country_code = 'country_code_example' # str | 
-postal_code = 'postal_code_example' # str | 
+access_point_types = ['access_point_types_example'] # list[str] | Access point types
+country_code = 'country_code_example' # str | Country code for access point
+postal_code = 'postal_code_example' # str | postal code for access point
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -124,7 +135,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.GetCarrierAccountsRequest() # GetCarrierAccountsRequest | 
+body = amazon_shipping.GetCarrierAccountsRequest() # GetCarrierAccountsRequest | GetCarrierAccountsRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -146,7 +157,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.GetCollectionFormHistoryRequest() # GetCollectionFormHistoryRequest | 
+body = amazon_shipping.GetCollectionFormHistoryRequest() # GetCollectionFormHistoryRequest | GetCollectionFormHistoryRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -157,7 +168,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.GetRatesRequest() # GetRatesRequest | 
+body = amazon_shipping.GetRatesRequest() # GetRatesRequest | GetRatesRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -194,7 +205,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.GetUnmanifestedShipmentsRequest() # GetUnmanifestedShipmentsRequest | 
+body = amazon_shipping.GetUnmanifestedShipmentsRequest() # GetUnmanifestedShipmentsRequest | GetUmanifestedShipmentsRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -205,8 +216,8 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | 
-carrier_id = 'carrier_id_example' # str | The unique identifier associated with the carrier account.
+body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | LinkCarrierAccountRequest body
+carrier_id = 'carrier_id_example' # str | An identifier for the carrier with which the seller's account is being linked.
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -217,7 +228,19 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.OneClickShipmentRequest() # OneClickShipmentRequest | 
+body = amazon_shipping.LinkCarrierAccountRequest() # LinkCarrierAccountRequest | LinkCarrierAccountRequest body
+carrier_id = 'carrier_id_example' # str | An identifier for the carrier with which the seller's account is being linked.
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_response = api_instance.link_carrier_account_0(body, carrier_id, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ShippingApi->link_carrier_account_0: %s\n" % e)
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
+body = amazon_shipping.OneClickShipmentRequest() # OneClickShipmentRequest | OneClickShipmentRequest body
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
 try:
@@ -228,7 +251,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.PurchaseShipmentRequest() # PurchaseShipmentRequest | 
+body = amazon_shipping.PurchaseShipmentRequest() # PurchaseShipmentRequest | PurchaseShipmentRequest body
 x_amzn_idempotency_key = 'x_amzn_idempotency_key_example' # str | A unique value which the server uses to recognize subsequent retries of the same request. (optional)
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -240,7 +263,17 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
-body = amazon_shipping.UnlinkCarrierAccountRequest() # UnlinkCarrierAccountRequest | 
+body = amazon_shipping.SubmitNdrFeedbackRequest() # SubmitNdrFeedbackRequest | Request body for ndrFeedback operation
+x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
+
+try:
+    api_instance.submit_ndr_feedback(body, x_amzn_shipping_business_id=x_amzn_shipping_business_id)
+except ApiException as e:
+    print("Exception when calling ShippingApi->submit_ndr_feedback: %s\n" % e)
+
+# create an instance of the API class
+api_instance = amazon_shipping.ShippingApi(amazon_shipping.ApiClient(configuration))
+body = amazon_shipping.UnlinkCarrierAccountRequest() # UnlinkCarrierAccountRequest | UnlinkCarrierAccountRequest body
 carrier_id = 'carrier_id_example' # str | carrier Id to unlink with merchant.
 x_amzn_shipping_business_id = 'x_amzn_shipping_business_id_example' # str | Amazon shipping business to assume for this request. The default is AmazonShipping_UK. (optional)
 
@@ -258,6 +291,7 @@ All URIs are relative to *https://sellingpartnerapi-eu.amazon.com/*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ShippingApi* | [**cancel_shipment**](docs/ShippingApi.md#cancel_shipment) | **PUT** /shipping/v2/shipments/{shipmentId}/cancel | 
+*ShippingApi* | [**create_claim**](docs/ShippingApi.md#create_claim) | **POST** /shipping/v2/claims | 
 *ShippingApi* | [**direct_purchase_shipment**](docs/ShippingApi.md#direct_purchase_shipment) | **POST** /shipping/v2/shipments/directPurchase | 
 *ShippingApi* | [**generate_collection_form**](docs/ShippingApi.md#generate_collection_form) | **POST** /shipping/v2/collectionForms | 
 *ShippingApi* | [**get_access_points**](docs/ShippingApi.md#get_access_points) | **GET** /shipping/v2/accessPoints | 
@@ -271,8 +305,10 @@ Class | Method | HTTP request | Description
 *ShippingApi* | [**get_tracking**](docs/ShippingApi.md#get_tracking) | **GET** /shipping/v2/tracking | 
 *ShippingApi* | [**get_unmanifested_shipments**](docs/ShippingApi.md#get_unmanifested_shipments) | **PUT** /shipping/v2/unmanifestedShipments | 
 *ShippingApi* | [**link_carrier_account**](docs/ShippingApi.md#link_carrier_account) | **PUT** /shipping/v2/carrierAccounts/{carrierId} | 
+*ShippingApi* | [**link_carrier_account_0**](docs/ShippingApi.md#link_carrier_account_0) | **POST** /shipping/v2/carrierAccounts/{carrierId} | 
 *ShippingApi* | [**one_click_shipment**](docs/ShippingApi.md#one_click_shipment) | **POST** /shipping/v2/oneClickShipment | 
 *ShippingApi* | [**purchase_shipment**](docs/ShippingApi.md#purchase_shipment) | **POST** /shipping/v2/shipments | 
+*ShippingApi* | [**submit_ndr_feedback**](docs/ShippingApi.md#submit_ndr_feedback) | **POST** /shipping/v2/ndrFeedback | 
 *ShippingApi* | [**unlink_carrier_account**](docs/ShippingApi.md#unlink_carrier_account) | **PUT** /shipping/v2/carrierAccounts/{carrierId}/unlink | 
 
 ## Documentation For Models
@@ -284,10 +320,12 @@ Class | Method | HTTP request | Description
  - [AccessPointType](docs/AccessPointType.md)
  - [AccessPointsMap](docs/AccessPointsMap.md)
  - [AccessibilityAttributes](docs/AccessibilityAttributes.md)
+ - [AccountId](docs/AccountId.md)
  - [AccountStatus](docs/AccountStatus.md)
  - [AccountType](docs/AccountType.md)
  - [ActiveAccount](docs/ActiveAccount.md)
  - [ActiveAccounts](docs/ActiveAccounts.md)
+ - [AdditionalAddressNotes](docs/AdditionalAddressNotes.md)
  - [Address](docs/Address.md)
  - [AlternateLegTrackingId](docs/AlternateLegTrackingId.md)
  - [AmazonOrderDetails](docs/AmazonOrderDetails.md)
@@ -298,11 +336,13 @@ Class | Method | HTTP request | Description
  - [CancelShipmentResponse](docs/CancelShipmentResponse.md)
  - [CancelShipmentResult](docs/CancelShipmentResult.md)
  - [Carrier](docs/Carrier.md)
+ - [CarrierAccount](docs/CarrierAccount.md)
  - [CarrierAccountAttribute](docs/CarrierAccountAttribute.md)
  - [CarrierAccountAttributes](docs/CarrierAccountAttributes.md)
  - [CarrierAccountInput](docs/CarrierAccountInput.md)
  - [CarrierAccountInputsList](docs/CarrierAccountInputsList.md)
  - [CarrierAccountType](docs/CarrierAccountType.md)
+ - [CarrierAccounts](docs/CarrierAccounts.md)
  - [CarrierId](docs/CarrierId.md)
  - [CarrierName](docs/CarrierName.md)
  - [ChannelDetails](docs/ChannelDetails.md)
@@ -310,6 +350,9 @@ Class | Method | HTTP request | Description
  - [ChargeComponent](docs/ChargeComponent.md)
  - [ChargeList](docs/ChargeList.md)
  - [City](docs/City.md)
+ - [ClaimId](docs/ClaimId.md)
+ - [ClaimProofURLs](docs/ClaimProofURLs.md)
+ - [ClaimReason](docs/ClaimReason.md)
  - [ClientReferenceDetail](docs/ClientReferenceDetail.md)
  - [ClientReferenceDetails](docs/ClientReferenceDetails.md)
  - [CollectOnDelivery](docs/CollectOnDelivery.md)
@@ -319,10 +362,13 @@ Class | Method | HTTP request | Description
  - [CollectionsFormDocument](docs/CollectionsFormDocument.md)
  - [Contents](docs/Contents.md)
  - [CountryCode](docs/CountryCode.md)
+ - [CreateClaimRequest](docs/CreateClaimRequest.md)
+ - [CreateClaimResponse](docs/CreateClaimResponse.md)
  - [Currency](docs/Currency.md)
  - [DangerousGoodsDetails](docs/DangerousGoodsDetails.md)
  - [DateRange](docs/DateRange.md)
  - [DayOfWeekTimeMap](docs/DayOfWeekTimeMap.md)
+ - [DetailCodes](docs/DetailCodes.md)
  - [Dimensions](docs/Dimensions.md)
  - [DirectFulfillmentItemIdentifiers](docs/DirectFulfillmentItemIdentifiers.md)
  - [DirectPurchaseRequest](docs/DirectPurchaseRequest.md)
@@ -338,6 +384,7 @@ Class | Method | HTTP request | Description
  - [EventCode](docs/EventCode.md)
  - [ExceptionOperatingHours](docs/ExceptionOperatingHours.md)
  - [ExcludedBenefit](docs/ExcludedBenefit.md)
+ - [ExcludedBenefitReasonCodes](docs/ExcludedBenefitReasonCodes.md)
  - [ExcludedBenefits](docs/ExcludedBenefits.md)
  - [GenerateCollectionFormRequest](docs/GenerateCollectionFormRequest.md)
  - [GenerateCollectionFormResponse](docs/GenerateCollectionFormResponse.md)
@@ -362,6 +409,7 @@ Class | Method | HTTP request | Description
  - [GetTrackingResult](docs/GetTrackingResult.md)
  - [GetUnmanifestedShipmentsRequest](docs/GetUnmanifestedShipmentsRequest.md)
  - [GetUnmanifestedShipmentsResponse](docs/GetUnmanifestedShipmentsResponse.md)
+ - [GoodsOwner](docs/GoodsOwner.md)
  - [IncludedBenefits](docs/IncludedBenefits.md)
  - [IneligibilityReason](docs/IneligibilityReason.md)
  - [IneligibilityReasonCode](docs/IneligibilityReasonCode.md)
@@ -371,6 +419,7 @@ Class | Method | HTTP request | Description
  - [InvoiceDetails](docs/InvoiceDetails.md)
  - [Item](docs/Item.md)
  - [ItemList](docs/ItemList.md)
+ - [LabelAttribute](docs/LabelAttribute.md)
  - [LinkCarrierAccountRequest](docs/LinkCarrierAccountRequest.md)
  - [LinkCarrierAccountResponse](docs/LinkCarrierAccountResponse.md)
  - [LinkableAccountType](docs/LinkableAccountType.md)
@@ -380,6 +429,8 @@ Class | Method | HTTP request | Description
  - [LiquidVolume](docs/LiquidVolume.md)
  - [Location](docs/Location.md)
  - [MerchantId](docs/MerchantId.md)
+ - [NdrAction](docs/NdrAction.md)
+ - [NdrRequestData](docs/NdrRequestData.md)
  - [NeedFileJoining](docs/NeedFileJoining.md)
  - [OneClickShipmentRequest](docs/OneClickShipmentRequest.md)
  - [OneClickShipmentResponse](docs/OneClickShipmentResponse.md)
@@ -410,8 +461,10 @@ Class | Method | HTTP request | Description
  - [RateItemList](docs/RateItemList.md)
  - [RateItemType](docs/RateItemType.md)
  - [RateList](docs/RateList.md)
+ - [RequestAttributes](docs/RequestAttributes.md)
  - [RequestToken](docs/RequestToken.md)
  - [RequestedDocumentSpecification](docs/RequestedDocumentSpecification.md)
+ - [RequestedLabelCustomization](docs/RequestedLabelCustomization.md)
  - [RequestedValueAddedService](docs/RequestedValueAddedService.md)
  - [RequestedValueAddedServiceList](docs/RequestedValueAddedServiceList.md)
  - [Service](docs/Service.md)
@@ -419,11 +472,13 @@ Class | Method | HTTP request | Description
  - [ServiceIds](docs/ServiceIds.md)
  - [ServiceName](docs/ServiceName.md)
  - [ServiceSelection](docs/ServiceSelection.md)
+ - [SettlementType](docs/SettlementType.md)
  - [ShipmentId](docs/ShipmentId.md)
  - [ShipmentType](docs/ShipmentType.md)
  - [ShipperInstruction](docs/ShipperInstruction.md)
  - [StateOrRegion](docs/StateOrRegion.md)
  - [Status](docs/Status.md)
+ - [SubmitNdrFeedbackRequest](docs/SubmitNdrFeedbackRequest.md)
  - [SupportedDocumentDetail](docs/SupportedDocumentDetail.md)
  - [SupportedDocumentSpecification](docs/SupportedDocumentSpecification.md)
  - [SupportedDocumentSpecificationList](docs/SupportedDocumentSpecificationList.md)
@@ -432,6 +487,7 @@ Class | Method | HTTP request | Description
  - [TaxType](docs/TaxType.md)
  - [TimeOfDay](docs/TimeOfDay.md)
  - [TimeWindow](docs/TimeWindow.md)
+ - [TrackingDetailCodes](docs/TrackingDetailCodes.md)
  - [TrackingId](docs/TrackingId.md)
  - [TrackingSummary](docs/TrackingSummary.md)
  - [UnlinkCarrierAccountRequest](docs/UnlinkCarrierAccountRequest.md)

@@ -28,19 +28,24 @@ class UnlinkCarrierAccountRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'client_reference_details': 'ClientReferenceDetails'
+        'client_reference_details': 'ClientReferenceDetails',
+        'account_id': 'AccountId'
     }
 
     attribute_map = {
-        'client_reference_details': 'clientReferenceDetails'
+        'client_reference_details': 'clientReferenceDetails',
+        'account_id': 'accountId'
     }
 
-    def __init__(self, client_reference_details=None):  # noqa: E501
+    def __init__(self, client_reference_details=None, account_id=None):  # noqa: E501
         """UnlinkCarrierAccountRequest - a model defined in Swagger"""  # noqa: E501
         self._client_reference_details = None
+        self._account_id = None
         self.discriminator = None
         if client_reference_details is not None:
             self.client_reference_details = client_reference_details
+        if account_id is not None:
+            self.account_id = account_id
 
     @property
     def client_reference_details(self):
@@ -62,6 +67,27 @@ class UnlinkCarrierAccountRequest(object):
         """
 
         self._client_reference_details = client_reference_details
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this UnlinkCarrierAccountRequest.  # noqa: E501
+
+
+        :return: The account_id of this UnlinkCarrierAccountRequest.  # noqa: E501
+        :rtype: AccountId
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this UnlinkCarrierAccountRequest.
+
+
+        :param account_id: The account_id of this UnlinkCarrierAccountRequest.  # noqa: E501
+        :type: AccountId
+        """
+
+        self._account_id = account_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

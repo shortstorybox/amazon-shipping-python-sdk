@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **type** | [**AccessPointType**](AccessPointType.md) |  | [optional] 
 **accessibility_attributes** | [**AccessibilityAttributes**](AccessibilityAttributes.md) |  | [optional] 
 **address** | [**Address**](Address.md) |  | [optional] 
-**exception_operating_hours** | [**list[ExceptionOperatingHours]**](ExceptionOperatingHours.md) |  | [optional] 
-**assistance_type** | **str** |  | [optional] 
+**exception_operating_hours** | [**list[ExceptionOperatingHours]**](ExceptionOperatingHours.md) | Exception operating hours for Access Point | [optional] 
+**assistance_type** | **str** | Assistance type enum for Access point i.e. STAFF_ASSISTED or SELF_ASSISTED | [optional] 
 **score** | **str** | The score of access point, based on proximity to postal code and sorting preference. This can be used to sort access point results on shipper&#x27;s end. | [optional] 
 **standard_operating_hours** | [**DayOfWeekTimeMap**](DayOfWeekTimeMap.md) |  | [optional] 
 

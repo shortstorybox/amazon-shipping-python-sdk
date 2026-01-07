@@ -29,21 +29,26 @@ class GetShipmentDocumentsResult(object):
     """
     swagger_types = {
         'shipment_id': 'ShipmentId',
-        'package_document_detail': 'PackageDocumentDetail'
+        'package_document_detail': 'PackageDocumentDetail',
+        'benefits': 'Benefits'
     }
 
     attribute_map = {
         'shipment_id': 'shipmentId',
-        'package_document_detail': 'packageDocumentDetail'
+        'package_document_detail': 'packageDocumentDetail',
+        'benefits': 'benefits'
     }
 
-    def __init__(self, shipment_id=None, package_document_detail=None):  # noqa: E501
+    def __init__(self, shipment_id=None, package_document_detail=None, benefits=None):  # noqa: E501
         """GetShipmentDocumentsResult - a model defined in Swagger"""  # noqa: E501
         self._shipment_id = None
         self._package_document_detail = None
+        self._benefits = None
         self.discriminator = None
         self.shipment_id = shipment_id
         self.package_document_detail = package_document_detail
+        if benefits is not None:
+            self.benefits = benefits
 
     @property
     def shipment_id(self):
@@ -90,6 +95,27 @@ class GetShipmentDocumentsResult(object):
             raise ValueError("Invalid value for `package_document_detail`, must not be `None`")  # noqa: E501
 
         self._package_document_detail = package_document_detail
+
+    @property
+    def benefits(self):
+        """Gets the benefits of this GetShipmentDocumentsResult.  # noqa: E501
+
+
+        :return: The benefits of this GetShipmentDocumentsResult.  # noqa: E501
+        :rtype: Benefits
+        """
+        return self._benefits
+
+    @benefits.setter
+    def benefits(self, benefits):
+        """Sets the benefits of this GetShipmentDocumentsResult.
+
+
+        :param benefits: The benefits of this GetShipmentDocumentsResult.  # noqa: E501
+        :type: Benefits
+        """
+
+        self._benefits = benefits
 
     def to_dict(self):
         """Returns the model properties as a dict"""

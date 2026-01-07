@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_reference_details** | [**ClientReferenceDetails**](ClientReferenceDetails.md) |  | [optional] 
+**account_id** | [**AccountId**](AccountId.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

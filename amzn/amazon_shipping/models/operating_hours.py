@@ -98,6 +98,7 @@ class OperatingHours(object):
     def mid_day_closures(self):
         """Gets the mid_day_closures of this OperatingHours.  # noqa: E501
 
+        midDayClosures operating hours array  # noqa: E501
 
         :return: The mid_day_closures of this OperatingHours.  # noqa: E501
         :rtype: list[TimeOfDay]
@@ -108,6 +109,7 @@ class OperatingHours(object):
     def mid_day_closures(self, mid_day_closures):
         """Sets the mid_day_closures of this OperatingHours.
 
+        midDayClosures operating hours array  # noqa: E501
 
         :param mid_day_closures: The mid_day_closures of this OperatingHours.  # noqa: E501
         :type: list[TimeOfDay]

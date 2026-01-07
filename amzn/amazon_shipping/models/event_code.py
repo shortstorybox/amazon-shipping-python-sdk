@@ -37,7 +37,7 @@ class EventCode(object):
     PICKUPCANCELLED = "PickupCancelled"
     RETURNINITIATED = "ReturnInitiated"
     AVAILABLEFORPICKUP = "AvailableForPickup"
-
+    RECIPIENTREQUESTEDALTERNATEDELIVERYTIMING = "RecipientRequestedAlternateDeliveryTiming"
     """
     Attributes:
       swagger_types (dict): The key is attribute name

@@ -31,7 +31,7 @@ class GetRatesRequest(object):
         'ship_to': 'Address',
         'ship_from': 'Address',
         'return_to': 'Address',
-        'ship_date': 'str',
+        'ship_date': 'datetime',
         'shipper_instruction': 'ShipperInstruction',
         'packages': 'PackageList',
         'value_added_services': 'ValueAddedServiceDetails',
@@ -39,7 +39,8 @@ class GetRatesRequest(object):
         'channel_details': 'ChannelDetails',
         'client_reference_details': 'ClientReferenceDetails',
         'shipment_type': 'ShipmentType',
-        'destination_access_point_details': 'AccessPointDetails'
+        'destination_access_point_details': 'AccessPointDetails',
+        'carrier_accounts': 'CarrierAccounts'
     }
 
     attribute_map = {
@@ -54,10 +55,11 @@ class GetRatesRequest(object):
         'channel_details': 'channelDetails',
         'client_reference_details': 'clientReferenceDetails',
         'shipment_type': 'shipmentType',
-        'destination_access_point_details': 'destinationAccessPointDetails'
+        'destination_access_point_details': 'destinationAccessPointDetails',
+        'carrier_accounts': 'carrierAccounts'
     }
 
-    def __init__(self, ship_to=None, ship_from=None, return_to=None, ship_date=None, shipper_instruction=None, packages=None, value_added_services=None, tax_details=None, channel_details=None, client_reference_details=None, shipment_type=None, destination_access_point_details=None):  # noqa: E501
+    def __init__(self, ship_to=None, ship_from=None, return_to=None, ship_date=None, shipper_instruction=None, packages=None, value_added_services=None, tax_details=None, channel_details=None, client_reference_details=None, shipment_type=None, destination_access_point_details=None, carrier_accounts=None):  # noqa: E501
         """GetRatesRequest - a model defined in Swagger"""  # noqa: E501
         self._ship_to = None
         self._ship_from = None
@@ -71,6 +73,7 @@ class GetRatesRequest(object):
         self._client_reference_details = None
         self._shipment_type = None
         self._destination_access_point_details = None
+        self._carrier_accounts = None
         self.discriminator = None
         if ship_to is not None:
             self.ship_to = ship_to
@@ -93,6 +96,8 @@ class GetRatesRequest(object):
             self.shipment_type = shipment_type
         if destination_access_point_details is not None:
             self.destination_access_point_details = destination_access_point_details
+        if carrier_accounts is not None:
+            self.carrier_accounts = carrier_accounts
 
     @property
     def ship_to(self):
@@ -353,6 +358,27 @@ class GetRatesRequest(object):
         """
 
         self._destination_access_point_details = destination_access_point_details
+
+    @property
+    def carrier_accounts(self):
+        """Gets the carrier_accounts of this GetRatesRequest.  # noqa: E501
+
+
+        :return: The carrier_accounts of this GetRatesRequest.  # noqa: E501
+        :rtype: CarrierAccounts
+        """
+        return self._carrier_accounts
+
+    @carrier_accounts.setter
+    def carrier_accounts(self, carrier_accounts):
+        """Sets the carrier_accounts of this GetRatesRequest.
+
+
+        :param carrier_accounts: The carrier_accounts of this GetRatesRequest.  # noqa: E501
+        :type: CarrierAccounts
+        """
+
+        self._carrier_accounts = carrier_accounts
 
     def to_dict(self):
         """Returns the model properties as a dict"""

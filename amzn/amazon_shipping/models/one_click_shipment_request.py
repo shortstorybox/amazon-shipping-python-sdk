@@ -32,6 +32,7 @@ class OneClickShipmentRequest(object):
         'ship_from': 'Address',
         'return_to': 'Address',
         'ship_date': 'datetime',
+        'goods_owner': 'GoodsOwner',
         'packages': 'PackageList',
         'value_added_services_details': 'OneClickShipmentValueAddedServiceDetails',
         'tax_details': 'TaxDetailList',
@@ -47,6 +48,7 @@ class OneClickShipmentRequest(object):
         'ship_from': 'shipFrom',
         'return_to': 'returnTo',
         'ship_date': 'shipDate',
+        'goods_owner': 'goodsOwner',
         'packages': 'packages',
         'value_added_services_details': 'valueAddedServicesDetails',
         'tax_details': 'taxDetails',
@@ -57,12 +59,13 @@ class OneClickShipmentRequest(object):
         'destination_access_point_details': 'destinationAccessPointDetails'
     }
 
-    def __init__(self, ship_to=None, ship_from=None, return_to=None, ship_date=None, packages=None, value_added_services_details=None, tax_details=None, channel_details=None, label_specifications=None, service_selection=None, shipper_instruction=None, destination_access_point_details=None):  # noqa: E501
+    def __init__(self, ship_to=None, ship_from=None, return_to=None, ship_date=None, goods_owner=None, packages=None, value_added_services_details=None, tax_details=None, channel_details=None, label_specifications=None, service_selection=None, shipper_instruction=None, destination_access_point_details=None):  # noqa: E501
         """OneClickShipmentRequest - a model defined in Swagger"""  # noqa: E501
         self._ship_to = None
         self._ship_from = None
         self._return_to = None
         self._ship_date = None
+        self._goods_owner = None
         self._packages = None
         self._value_added_services_details = None
         self._tax_details = None
@@ -79,6 +82,8 @@ class OneClickShipmentRequest(object):
             self.return_to = return_to
         if ship_date is not None:
             self.ship_date = ship_date
+        if goods_owner is not None:
+            self.goods_owner = goods_owner
         self.packages = packages
         if value_added_services_details is not None:
             self.value_added_services_details = value_added_services_details
@@ -179,6 +184,27 @@ class OneClickShipmentRequest(object):
         """
 
         self._ship_date = ship_date
+
+    @property
+    def goods_owner(self):
+        """Gets the goods_owner of this OneClickShipmentRequest.  # noqa: E501
+
+
+        :return: The goods_owner of this OneClickShipmentRequest.  # noqa: E501
+        :rtype: GoodsOwner
+        """
+        return self._goods_owner
+
+    @goods_owner.setter
+    def goods_owner(self, goods_owner):
+        """Sets the goods_owner of this OneClickShipmentRequest.
+
+
+        :param goods_owner: The goods_owner of this OneClickShipmentRequest.  # noqa: E501
+        :type: GoodsOwner
+        """
+
+        self._goods_owner = goods_owner
 
     @property
     def packages(self):

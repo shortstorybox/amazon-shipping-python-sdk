@@ -33,7 +33,8 @@ class RequestedDocumentSpecification(object):
         'dpi': 'Dpi',
         'page_layout': 'PageLayout',
         'need_file_joining': 'NeedFileJoining',
-        'requested_document_types': 'list[DocumentType]'
+        'requested_document_types': 'list[DocumentType]',
+        'requested_label_customization': 'RequestedLabelCustomization'
     }
 
     attribute_map = {
@@ -42,10 +43,11 @@ class RequestedDocumentSpecification(object):
         'dpi': 'dpi',
         'page_layout': 'pageLayout',
         'need_file_joining': 'needFileJoining',
-        'requested_document_types': 'requestedDocumentTypes'
+        'requested_document_types': 'requestedDocumentTypes',
+        'requested_label_customization': 'requestedLabelCustomization'
     }
 
-    def __init__(self, format=None, size=None, dpi=None, page_layout=None, need_file_joining=None, requested_document_types=None):  # noqa: E501
+    def __init__(self, format=None, size=None, dpi=None, page_layout=None, need_file_joining=None, requested_document_types=None, requested_label_customization=None):  # noqa: E501
         """RequestedDocumentSpecification - a model defined in Swagger"""  # noqa: E501
         self._format = None
         self._size = None
@@ -53,6 +55,7 @@ class RequestedDocumentSpecification(object):
         self._page_layout = None
         self._need_file_joining = None
         self._requested_document_types = None
+        self._requested_label_customization = None
         self.discriminator = None
         self.format = format
         self.size = size
@@ -62,6 +65,8 @@ class RequestedDocumentSpecification(object):
             self.page_layout = page_layout
         self.need_file_joining = need_file_joining
         self.requested_document_types = requested_document_types
+        if requested_label_customization is not None:
+            self.requested_label_customization = requested_label_customization
 
     @property
     def format(self):
@@ -198,6 +203,27 @@ class RequestedDocumentSpecification(object):
             raise ValueError("Invalid value for `requested_document_types`, must not be `None`")  # noqa: E501
 
         self._requested_document_types = requested_document_types
+
+    @property
+    def requested_label_customization(self):
+        """Gets the requested_label_customization of this RequestedDocumentSpecification.  # noqa: E501
+
+
+        :return: The requested_label_customization of this RequestedDocumentSpecification.  # noqa: E501
+        :rtype: RequestedLabelCustomization
+        """
+        return self._requested_label_customization
+
+    @requested_label_customization.setter
+    def requested_label_customization(self, requested_label_customization):
+        """Sets the requested_label_customization of this RequestedDocumentSpecification.
+
+
+        :param requested_label_customization: The requested_label_customization of this RequestedDocumentSpecification.  # noqa: E501
+        :type: RequestedLabelCustomization
+        """
+
+        self._requested_label_customization = requested_label_customization
 
     def to_dict(self):
         """Returns the model properties as a dict"""

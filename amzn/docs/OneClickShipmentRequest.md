@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ship_from** | [**Address**](Address.md) |  | 
 **return_to** | [**Address**](Address.md) |  | [optional] 
 **ship_date** | **datetime** | The ship date and time (the requested pickup). This defaults to the current date and time. | [optional] 
+**goods_owner** | [**GoodsOwner**](GoodsOwner.md) |  | [optional] 
 **packages** | [**PackageList**](PackageList.md) |  | 
 **value_added_services_details** | [**OneClickShipmentValueAddedServiceDetails**](OneClickShipmentValueAddedServiceDetails.md) |  | [optional] 
 **tax_details** | [**TaxDetailList**](TaxDetailList.md) |  | [optional] 

@@ -33,8 +33,6 @@ class PrintOptionList(object):
     attribute_map = {
     }
 
-    child_type = 'list[PrintOption]'
-
     def __init__(self):  # noqa: E501
         """PrintOptionList - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None

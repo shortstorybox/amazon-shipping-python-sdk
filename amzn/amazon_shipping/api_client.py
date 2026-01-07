@@ -17,7 +17,6 @@ from multiprocessing.pool import ThreadPool
 import os
 import re
 import tempfile
-import atexit
 
 # python 2 and python 3 compatibility library
 import six
@@ -60,15 +59,13 @@ class ApiClient(object):
         'object': object,
     }
 
-    _pool = None
-
     def __init__(self, configuration=None, header_name=None, header_value=None,
-                 cookie=None, pool_threads=1):
+                 cookie=None):
         if configuration is None:
             configuration = Configuration()
         self.configuration = configuration
-        self.pool_threads = pool_threads
 
+        self.pool = ThreadPool()
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {}
         if header_name is not None:
@@ -78,27 +75,8 @@ class ApiClient(object):
         self.user_agent = 'Swagger-Codegen/1.0.0/python'
 
     def __del__(self):
-        self.close()
-    
-    def close(self):
-        if self._pool:
-            self._pool.close()
-            self._pool.join()
-            self._pool = None
-            if hasattr(atexit, 'unregister'):
-                atexit.unregister(self.close)
-    
-    @property
-    def pool(self):
-        """Create thread pool on first request
-         avoids instantiating unused threadpool for blocking clients.
-        """
-        if self._pool is None:
-            atexit.register(self.close)
-            self._pool = ThreadPool(self.pool_threads)
-        return self._pool
-
-
+        self.pool.close()
+        self.pool.join()
 
     @property
     def user_agent(self):
@@ -628,10 +606,7 @@ class ApiClient(object):
         """
 
         if not klass.swagger_types and not self.__hasattr(klass, 'get_real_child_model'):
-            if hasattr(klass, 'child_type') and klass.child_type is not None:
-                return self.__deserialize(data, klass.child_type)
-            else:
-                return data
+            return data
 
         kwargs = {}
         if klass.swagger_types is not None:

@@ -34,6 +34,12 @@ class TestShippingApi(unittest.TestCase):
         """
         pass
 
+    def test_create_claim(self):
+        """Test case for create_claim
+
+        """
+        pass
+
     def test_direct_purchase_shipment(self):
         """Test case for direct_purchase_shipment
 
@@ -112,6 +118,12 @@ class TestShippingApi(unittest.TestCase):
         """
         pass
 
+    def test_link_carrier_account_0(self):
+        """Test case for link_carrier_account_0
+
+        """
+        pass
+
     def test_one_click_shipment(self):
         """Test case for one_click_shipment
 
@@ -120,6 +132,12 @@ class TestShippingApi(unittest.TestCase):
 
     def test_purchase_shipment(self):
         """Test case for purchase_shipment
+
+        """
+        pass
+
+    def test_submit_ndr_feedback(self):
+        """Test case for submit_ndr_feedback
 
         """
         pass
