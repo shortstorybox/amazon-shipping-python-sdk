@@ -119,7 +119,7 @@ referencing==0.29.1
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
     #   jsonschema-specifications
-requests==2.27.1
+requests==2.33.0
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   bravado
