@@ -53,7 +53,7 @@ fqdn==1.5.1
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
-idna==2.8
+idna~=3.4
     # via
     #   -r ./selling-partner-api-models/clients/sellingpartner-api-aa-python/requirements.txt
     #   jsonschema
