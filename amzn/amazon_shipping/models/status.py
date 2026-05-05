@@ -34,7 +34,6 @@ class Status(object):
     DELIVERYATTEMPTED = "DeliveryAttempted"
     PICKUPCANCELLED = "PickupCancelled"
     AWAITINGCUSTOMERPICKUP = "AwaitingCustomerPickup"
-
     """
     Attributes:
       swagger_types (dict): The key is attribute name

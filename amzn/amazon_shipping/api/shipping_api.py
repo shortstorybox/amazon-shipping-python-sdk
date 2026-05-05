@@ -113,7 +113,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/{shipmentId}/cancel', 'PUT',
@@ -131,6 +131,109 @@ class ShippingApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_claim(self, body, **kwargs):  # noqa: E501
+        """create_claim  # noqa: E501
+
+        This API will be used to create claim for single eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_claim(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateClaimRequest body: Request body for the createClaim operation (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: CreateClaimResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.create_claim_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_claim_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def create_claim_with_http_info(self, body, **kwargs):  # noqa: E501
+        """create_claim  # noqa: E501
+
+        This API will be used to create claim for single eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.create_claim_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CreateClaimRequest body: Request body for the createClaim operation (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: CreateClaimResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'x_amzn_shipping_business_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_claim" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_claim`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'x_amzn_shipping_business_id' in params:
+            header_params['x-amzn-shipping-business-id'] = params['x_amzn_shipping_business_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/shipping/v2/claims', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateClaimResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def direct_purchase_shipment(self, body, **kwargs):  # noqa: E501
         """direct_purchase_shipment  # noqa: E501
 
@@ -141,7 +244,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DirectPurchaseRequest body: (required)
+        :param DirectPurchaseRequest body: DirectPurchaseRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str locale: The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags. 
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
@@ -166,7 +269,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param DirectPurchaseRequest body: (required)
+        :param DirectPurchaseRequest body: DirectPurchaseRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str locale: The IETF Language Tag. Note that this only supports the primary language subtag with one secondary language subtag (i.e. en-US, fr-CA). The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary language subtags. 
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
@@ -224,7 +327,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/directPurchase', 'POST',
@@ -252,7 +355,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GenerateCollectionFormRequest body: (required)
+        :param GenerateCollectionFormRequest body: GenerateCollectionFormRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GenerateCollectionFormResponse
@@ -276,7 +379,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GenerateCollectionFormRequest body: (required)
+        :param GenerateCollectionFormRequest body: GenerateCollectionFormRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GenerateCollectionFormResponse
@@ -331,7 +434,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms', 'POST',
@@ -359,9 +462,9 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] access_point_types: (required)
-        :param str country_code: (required)
-        :param str postal_code: (required)
+        :param list[str] access_point_types: Access point types (required)
+        :param str country_code: Country code for access point (required)
+        :param str postal_code: postal code for access point (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetAccessPointsResponse
                  If the method is called asynchronously,
@@ -384,9 +487,9 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[str] access_point_types: (required)
-        :param str country_code: (required)
-        :param str postal_code: (required)
+        :param list[str] access_point_types: Access point types (required)
+        :param str country_code: Country code for access point (required)
+        :param str postal_code: postal code for access point (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetAccessPointsResponse
                  If the method is called asynchronously,
@@ -447,7 +550,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/accessPoints', 'GET',
@@ -554,7 +657,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/additionalInputs/schema', 'GET',
@@ -645,7 +748,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccountFormInputs', 'GET',
@@ -673,7 +776,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetCarrierAccountsRequest body: (required)
+        :param GetCarrierAccountsRequest body: GetCarrierAccountsRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetCarrierAccountsResponse
                  If the method is called asynchronously,
@@ -696,7 +799,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetCarrierAccountsRequest body: (required)
+        :param GetCarrierAccountsRequest body: GetCarrierAccountsRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetCarrierAccountsResponse
                  If the method is called asynchronously,
@@ -748,7 +851,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts', 'PUT',
@@ -847,7 +950,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms/{collectionFormId}', 'GET',
@@ -875,7 +978,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetCollectionFormHistoryRequest body: (required)
+        :param GetCollectionFormHistoryRequest body: GetCollectionFormHistoryRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetCollectionFormHistoryResponse
                  If the method is called asynchronously,
@@ -898,7 +1001,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetCollectionFormHistoryRequest body: (required)
+        :param GetCollectionFormHistoryRequest body: GetCollectionFormHistoryRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetCollectionFormHistoryResponse
                  If the method is called asynchronously,
@@ -950,7 +1053,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/collectionForms/history', 'PUT',
@@ -978,7 +1081,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetRatesRequest body: (required)
+        :param GetRatesRequest body: GetRatesRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetRatesResponse
                  If the method is called asynchronously,
@@ -1001,7 +1104,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetRatesRequest body: (required)
+        :param GetRatesRequest body: GetRatesRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetRatesResponse
                  If the method is called asynchronously,
@@ -1053,7 +1156,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/rates', 'POST',
@@ -1168,7 +1271,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments/{shipmentId}/documents', 'GET',
@@ -1275,7 +1378,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/tracking', 'GET',
@@ -1303,7 +1406,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetUnmanifestedShipmentsRequest body: (required)
+        :param GetUnmanifestedShipmentsRequest body: GetUmanifestedShipmentsRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetUnmanifestedShipmentsResponse
                  If the method is called asynchronously,
@@ -1326,7 +1429,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param GetUnmanifestedShipmentsRequest body: (required)
+        :param GetUnmanifestedShipmentsRequest body: GetUmanifestedShipmentsRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: GetUnmanifestedShipmentsResponse
                  If the method is called asynchronously,
@@ -1378,7 +1481,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/unmanifestedShipments', 'PUT',
@@ -1406,8 +1509,8 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param LinkCarrierAccountRequest body: (required)
-        :param str carrier_id: The unique identifier associated with the carrier account. (required)
+        :param LinkCarrierAccountRequest body: LinkCarrierAccountRequest body (required)
+        :param str carrier_id: An identifier for the carrier with which the seller's account is being linked. (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: LinkCarrierAccountResponse
                  If the method is called asynchronously,
@@ -1430,8 +1533,8 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param LinkCarrierAccountRequest body: (required)
-        :param str carrier_id: The unique identifier associated with the carrier account. (required)
+        :param LinkCarrierAccountRequest body: LinkCarrierAccountRequest body (required)
+        :param str carrier_id: An identifier for the carrier with which the seller's account is being linked. (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: LinkCarrierAccountResponse
                  If the method is called asynchronously,
@@ -1489,10 +1592,121 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts/{carrierId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='LinkCarrierAccountResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def link_carrier_account_0(self, body, carrier_id, **kwargs):  # noqa: E501
+        """link_carrier_account_0  # noqa: E501
+
+        This API associates/links the specified carrier account with the merchant.   **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 5 | 10 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.link_carrier_account_0(body, carrier_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LinkCarrierAccountRequest body: LinkCarrierAccountRequest body (required)
+        :param str carrier_id: An identifier for the carrier with which the seller's account is being linked. (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: LinkCarrierAccountResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.link_carrier_account_0_with_http_info(body, carrier_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.link_carrier_account_0_with_http_info(body, carrier_id, **kwargs)  # noqa: E501
+            return data
+
+    def link_carrier_account_0_with_http_info(self, body, carrier_id, **kwargs):  # noqa: E501
+        """link_carrier_account_0  # noqa: E501
+
+        This API associates/links the specified carrier account with the merchant.   **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 5 | 10 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.link_carrier_account_0_with_http_info(body, carrier_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param LinkCarrierAccountRequest body: LinkCarrierAccountRequest body (required)
+        :param str carrier_id: An identifier for the carrier with which the seller's account is being linked. (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: LinkCarrierAccountResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'carrier_id', 'x_amzn_shipping_business_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method link_carrier_account_0" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `link_carrier_account_0`")  # noqa: E501
+        # verify the required parameter 'carrier_id' is set
+        if ('carrier_id' not in params or
+                params['carrier_id'] is None):
+            raise ValueError("Missing the required parameter `carrier_id` when calling `link_carrier_account_0`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'carrier_id' in params:
+            path_params['carrierId'] = params['carrier_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'x_amzn_shipping_business_id' in params:
+            header_params['x-amzn-shipping-business-id'] = params['x_amzn_shipping_business_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/shipping/v2/carrierAccounts/{carrierId}', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1517,7 +1731,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param OneClickShipmentRequest body: (required)
+        :param OneClickShipmentRequest body: OneClickShipmentRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: OneClickShipmentResponse
                  If the method is called asynchronously,
@@ -1540,7 +1754,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param OneClickShipmentRequest body: (required)
+        :param OneClickShipmentRequest body: OneClickShipmentRequest body (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: OneClickShipmentResponse
                  If the method is called asynchronously,
@@ -1592,7 +1806,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/oneClickShipment', 'POST',
@@ -1620,7 +1834,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param PurchaseShipmentRequest body: (required)
+        :param PurchaseShipmentRequest body: PurchaseShipmentRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: PurchaseShipmentResponse
@@ -1644,7 +1858,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param PurchaseShipmentRequest body: (required)
+        :param PurchaseShipmentRequest body: PurchaseShipmentRequest body (required)
         :param str x_amzn_idempotency_key: A unique value which the server uses to recognize subsequent retries of the same request.
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: PurchaseShipmentResponse
@@ -1699,7 +1913,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/shipments', 'POST',
@@ -1717,6 +1931,109 @@ class ShippingApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def submit_ndr_feedback(self, body, **kwargs):  # noqa: E501
+        """submit_ndr_feedback  # noqa: E501
+
+        This API submits the NDR (Non-delivery Report) Feedback for any eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_ndr_feedback(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SubmitNdrFeedbackRequest body: Request body for ndrFeedback operation (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.submit_ndr_feedback_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.submit_ndr_feedback_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def submit_ndr_feedback_with_http_info(self, body, **kwargs):  # noqa: E501
+        """submit_ndr_feedback  # noqa: E501
+
+        This API submits the NDR (Non-delivery Report) Feedback for any eligible shipment.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 80 | 100 |  The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.submit_ndr_feedback_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param SubmitNdrFeedbackRequest body: Request body for ndrFeedback operation (required)
+        :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'x_amzn_shipping_business_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method submit_ndr_feedback" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `submit_ndr_feedback`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+        if 'x_amzn_shipping_business_id' in params:
+            header_params['x-amzn-shipping-business-id'] = params['x_amzn_shipping_business_id']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/shipping/v2/ndrFeedback', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def unlink_carrier_account(self, body, carrier_id, **kwargs):  # noqa: E501
         """unlink_carrier_account  # noqa: E501
 
@@ -1727,7 +2044,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UnlinkCarrierAccountRequest body: (required)
+        :param UnlinkCarrierAccountRequest body: UnlinkCarrierAccountRequest body (required)
         :param str carrier_id: carrier Id to unlink with merchant. (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: UnlinkCarrierAccountResponse
@@ -1751,7 +2068,7 @@ class ShippingApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UnlinkCarrierAccountRequest body: (required)
+        :param UnlinkCarrierAccountRequest body: UnlinkCarrierAccountRequest body (required)
         :param str carrier_id: carrier Id to unlink with merchant. (required)
         :param str x_amzn_shipping_business_id: Amazon shipping business to assume for this request. The default is AmazonShipping_UK.
         :return: UnlinkCarrierAccountResponse
@@ -1810,7 +2127,7 @@ class ShippingApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['access_token']  # noqa: E501
+        auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
             '/shipping/v2/carrierAccounts/{carrierId}/unlink', 'PUT',

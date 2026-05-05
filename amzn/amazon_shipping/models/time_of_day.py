@@ -56,6 +56,7 @@ class TimeOfDay(object):
     def hour_of_day(self):
         """Gets the hour_of_day of this TimeOfDay.  # noqa: E501
 
+        Denotes hour of the day, used for defining opening or closing time of access points  # noqa: E501
 
         :return: The hour_of_day of this TimeOfDay.  # noqa: E501
         :rtype: int
@@ -66,6 +67,7 @@ class TimeOfDay(object):
     def hour_of_day(self, hour_of_day):
         """Sets the hour_of_day of this TimeOfDay.
 
+        Denotes hour of the day, used for defining opening or closing time of access points  # noqa: E501
 
         :param hour_of_day: The hour_of_day of this TimeOfDay.  # noqa: E501
         :type: int
@@ -77,6 +79,7 @@ class TimeOfDay(object):
     def minute_of_hour(self):
         """Gets the minute_of_hour of this TimeOfDay.  # noqa: E501
 
+        Denotes minute of the hour, used for defining opening or closing time of access points  # noqa: E501
 
         :return: The minute_of_hour of this TimeOfDay.  # noqa: E501
         :rtype: int
@@ -87,6 +90,7 @@ class TimeOfDay(object):
     def minute_of_hour(self, minute_of_hour):
         """Sets the minute_of_hour of this TimeOfDay.
 
+        Denotes minute of the hour, used for defining opening or closing time of access points  # noqa: E501
 
         :param minute_of_hour: The minute_of_hour of this TimeOfDay.  # noqa: E501
         :type: int
@@ -98,6 +102,7 @@ class TimeOfDay(object):
     def second_of_minute(self):
         """Gets the second_of_minute of this TimeOfDay.  # noqa: E501
 
+        Denotes second of the minute, used for defining opening or closing time of access points  # noqa: E501
 
         :return: The second_of_minute of this TimeOfDay.  # noqa: E501
         :rtype: int
@@ -108,6 +113,7 @@ class TimeOfDay(object):
     def second_of_minute(self, second_of_minute):
         """Sets the second_of_minute of this TimeOfDay.
 
+        Denotes second of the minute, used for defining opening or closing time of access points  # noqa: E501
 
         :param second_of_minute: The second_of_minute of this TimeOfDay.  # noqa: E501
         :type: int

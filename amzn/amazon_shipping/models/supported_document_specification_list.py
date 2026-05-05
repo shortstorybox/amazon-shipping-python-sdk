@@ -33,8 +33,6 @@ class SupportedDocumentSpecificationList(object):
     attribute_map = {
     }
 
-    child_type = 'list[SupportedDocumentSpecification]'
-
     def __init__(self):  # noqa: E501
         """SupportedDocumentSpecificationList - a model defined in Swagger"""  # noqa: E501
         self.discriminator = None

@@ -28,19 +28,24 @@ class LinkCarrierAccountResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'registration_status': 'AccountStatus'
+        'registration_status': 'AccountStatus',
+        'account_id': 'AccountId'
     }
 
     attribute_map = {
-        'registration_status': 'registrationStatus'
+        'registration_status': 'registrationStatus',
+        'account_id': 'accountId'
     }
 
-    def __init__(self, registration_status=None):  # noqa: E501
+    def __init__(self, registration_status=None, account_id=None):  # noqa: E501
         """LinkCarrierAccountResponse - a model defined in Swagger"""  # noqa: E501
         self._registration_status = None
+        self._account_id = None
         self.discriminator = None
         if registration_status is not None:
             self.registration_status = registration_status
+        if account_id is not None:
+            self.account_id = account_id
 
     @property
     def registration_status(self):
@@ -62,6 +67,27 @@ class LinkCarrierAccountResponse(object):
         """
 
         self._registration_status = registration_status
+
+    @property
+    def account_id(self):
+        """Gets the account_id of this LinkCarrierAccountResponse.  # noqa: E501
+
+
+        :return: The account_id of this LinkCarrierAccountResponse.  # noqa: E501
+        :rtype: AccountId
+        """
+        return self._account_id
+
+    @account_id.setter
+    def account_id(self, account_id):
+        """Sets the account_id of this LinkCarrierAccountResponse.
+
+
+        :param account_id: The account_id of this LinkCarrierAccountResponse.  # noqa: E501
+        :type: AccountId
+        """
+
+        self._account_id = account_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

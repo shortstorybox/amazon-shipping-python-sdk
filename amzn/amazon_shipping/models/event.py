@@ -52,7 +52,8 @@ class Event(object):
         if location is not None:
             self.location = location
         self.event_time = event_time
-        self.shipment_type = shipment_type
+        if shipment_type is not None:
+            self.shipment_type = shipment_type
 
     @property
     def event_code(self):
@@ -127,10 +128,9 @@ class Event(object):
     def shipment_type(self):
         """Gets the shipment_type of this Event.  # noqa: E501
 
-        The ISO 8601 formatted timestamp of the event.  # noqa: E501
 
         :return: The shipment_type of this Event.  # noqa: E501
-        :rtype: datetime
+        :rtype: ShipmentType
         """
         return self._shipment_type
 
@@ -138,13 +138,10 @@ class Event(object):
     def shipment_type(self, shipment_type):
         """Sets the shipment_type of this Event.
 
-        The ISO 8601 formatted timestamp of the event.  # noqa: E501
 
         :param shipment_type: The shipment_type of this Event.  # noqa: E501
-        :type: datetime
+        :type: ShipmentType
         """
-        if shipment_type is None:
-            raise ValueError("Invalid value for `shipment_type`, must not be `None`")  # noqa: E501
 
         self._shipment_type = shipment_type
 

@@ -29,26 +29,28 @@ class ExcludedBenefit(object):
     """
     swagger_types = {
         'benefit': 'str',
-        'reason_code': 'str'
+        'reason_codes': 'ExcludedBenefitReasonCodes'
     }
 
     attribute_map = {
         'benefit': 'benefit',
-        'reason_code': 'reasonCode'
+        'reason_codes': 'reasonCodes'
     }
 
-    def __init__(self, benefit=None, reason_code=None):  # noqa: E501
+    def __init__(self, benefit=None, reason_codes=None):  # noqa: E501
         """ExcludedBenefit - a model defined in Swagger"""  # noqa: E501
         self._benefit = None
-        self._reason_code = None
+        self._reason_codes = None
         self.discriminator = None
         self.benefit = benefit
-        self.reason_code = reason_code
+        if reason_codes is not None:
+            self.reason_codes = reason_codes
 
     @property
     def benefit(self):
         """Gets the benefit of this ExcludedBenefit.  # noqa: E501
 
+        benefit  # noqa: E501
 
         :return: The benefit of this ExcludedBenefit.  # noqa: E501
         :rtype: str
@@ -59,6 +61,7 @@ class ExcludedBenefit(object):
     def benefit(self, benefit):
         """Sets the benefit of this ExcludedBenefit.
 
+        benefit  # noqa: E501
 
         :param benefit: The benefit of this ExcludedBenefit.  # noqa: E501
         :type: str
@@ -69,27 +72,25 @@ class ExcludedBenefit(object):
         self._benefit = benefit
 
     @property
-    def reason_code(self):
-        """Gets the reason_code of this ExcludedBenefit.  # noqa: E501
+    def reason_codes(self):
+        """Gets the reason_codes of this ExcludedBenefit.  # noqa: E501
 
 
-        :return: The reason_code of this ExcludedBenefit.  # noqa: E501
-        :rtype: str
+        :return: The reason_codes of this ExcludedBenefit.  # noqa: E501
+        :rtype: ExcludedBenefitReasonCodes
         """
-        return self._reason_code
+        return self._reason_codes
 
-    @reason_code.setter
-    def reason_code(self, reason_code):
-        """Sets the reason_code of this ExcludedBenefit.
+    @reason_codes.setter
+    def reason_codes(self, reason_codes):
+        """Sets the reason_codes of this ExcludedBenefit.
 
 
-        :param reason_code: The reason_code of this ExcludedBenefit.  # noqa: E501
-        :type: str
+        :param reason_codes: The reason_codes of this ExcludedBenefit.  # noqa: E501
+        :type: ExcludedBenefitReasonCodes
         """
-        if reason_code is None:
-            raise ValueError("Invalid value for `reason_code`, must not be `None`")  # noqa: E501
 
-        self._reason_code = reason_code
+        self._reason_codes = reason_codes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

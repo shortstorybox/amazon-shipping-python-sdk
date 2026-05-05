@@ -34,7 +34,7 @@ class TrackingSummary(object):
 
     attribute_map = {
         'status': 'status',
-        'tracking_detail_codes': 'TrackingDetailCodes'
+        'tracking_detail_codes': 'trackingDetailCodes'
     }
 
     def __init__(self, status=None, tracking_detail_codes=None):  # noqa: E501
@@ -44,7 +44,8 @@ class TrackingSummary(object):
         self.discriminator = None
         if status is not None:
             self.status = status
-        self.tracking_detail_codes = tracking_detail_codes
+        if tracking_detail_codes is not None:
+            self.tracking_detail_codes = tracking_detail_codes
 
     @property
     def status(self):
@@ -73,7 +74,7 @@ class TrackingSummary(object):
 
 
         :return: The tracking_detail_codes of this TrackingSummary.  # noqa: E501
-        :rtype: tracking_detail_codes
+        :rtype: TrackingDetailCodes
         """
         return self._tracking_detail_codes
 
@@ -83,7 +84,7 @@ class TrackingSummary(object):
 
 
         :param tracking_detail_codes: The tracking_detail_codes of this TrackingSummary.  # noqa: E501
-        :type: tracking_detail_codes
+        :type: TrackingDetailCodes
         """
 
         self._tracking_detail_codes = tracking_detail_codes

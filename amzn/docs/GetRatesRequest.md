@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **client_reference_details** | [**ClientReferenceDetails**](ClientReferenceDetails.md) |  | [optional] 
 **shipment_type** | [**ShipmentType**](ShipmentType.md) |  | [optional] 
 **destination_access_point_details** | [**AccessPointDetails**](AccessPointDetails.md) |  | [optional] 
+**carrier_accounts** | [**CarrierAccounts**](CarrierAccounts.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

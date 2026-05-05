@@ -221,6 +221,7 @@ class AccessPoint(object):
     def exception_operating_hours(self):
         """Gets the exception_operating_hours of this AccessPoint.  # noqa: E501
 
+        Exception operating hours for Access Point  # noqa: E501
 
         :return: The exception_operating_hours of this AccessPoint.  # noqa: E501
         :rtype: list[ExceptionOperatingHours]
@@ -231,6 +232,7 @@ class AccessPoint(object):
     def exception_operating_hours(self, exception_operating_hours):
         """Sets the exception_operating_hours of this AccessPoint.
 
+        Exception operating hours for Access Point  # noqa: E501
 
         :param exception_operating_hours: The exception_operating_hours of this AccessPoint.  # noqa: E501
         :type: list[ExceptionOperatingHours]
@@ -242,6 +244,7 @@ class AccessPoint(object):
     def assistance_type(self):
         """Gets the assistance_type of this AccessPoint.  # noqa: E501
 
+        Assistance type enum for Access point i.e. STAFF_ASSISTED or SELF_ASSISTED  # noqa: E501
 
         :return: The assistance_type of this AccessPoint.  # noqa: E501
         :rtype: str
@@ -252,6 +255,7 @@ class AccessPoint(object):
     def assistance_type(self, assistance_type):
         """Sets the assistance_type of this AccessPoint.
 
+        Assistance type enum for Access point i.e. STAFF_ASSISTED or SELF_ASSISTED  # noqa: E501
 
         :param assistance_type: The assistance_type of this AccessPoint.  # noqa: E501
         :type: str
